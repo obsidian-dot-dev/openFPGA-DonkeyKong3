@@ -1,0 +1,120 @@
+{
+    "interact": {
+        "magic": "APF_VER_1",
+        "variables": [
+          {
+              "name": "Players",
+              "id": 1,
+              "type": "list",
+              "enabled": true,
+              "persist": true,
+              "address": "0x80000000",
+              "writeonly": true,
+              "defaultval": 0,
+              "options": [
+                {
+                  "value": 0,
+                  "name": "3"
+                },
+                {
+                  "value": 1,
+                  "name": "4"
+                },
+                {
+                  "value": 2,
+                  "name": "5"
+                },
+                {
+                  "value": 3,
+                  "name": "6"
+                }                  
+              ]
+          },
+          {
+              "name": "First Bonus",
+              "id": 2,
+              "type": "list",
+              "enabled": true,
+              "persist": true,
+              "address": "0x90000000",
+              "writeonly": true,
+              "defaultval": 0,
+              "options": [
+                {
+                  "value": 0,
+                  "name": "30k"
+                },
+                {
+                  "value": 1,
+                  "name": "40k"
+                },
+                {
+                  "value": 2,
+                  "name": "50k"
+                },
+                {
+                  "value": 3,
+                  "name": "None"
+                }                  
+              ]
+          },
+          {
+            "name": "Next Bonus",
+            "id": 3,
+            "type": "list",
+            "enabled": true,
+            "persist": true,
+            "address": "0x10000000",
+            "writeonly": true,
+            "defaultval": 0,
+            "options": [
+              {
+                "value": 0,
+                "name": "30k"
+              },
+              {
+                "value": 1,
+                "name": "40k"
+              },
+              {
+                "value": 2,
+                "name": "50k"
+              },
+              {
+                "value": 3,
+                "name": "None"
+              }                  
+            ]
+        },
+          {
+            "name": "Difficulty",
+            "id": 4,
+            "type": "list",
+            "enabled": true,
+            "persist": true,
+            "address": "0x20000000",
+            "writeonly": true,
+            "defaultval": 0,
+            "options": [
+              {
+                "value": 0,
+                "name": "Easy"
+              },
+              {
+                "value": 2,
+                "name": "Medium"
+              },
+              {
+                "value": 1,
+                "name": "Hard"
+              },
+              {
+                "value": 3,
+                "name": "Hardest"
+              }                  
+            ]
+        }
+      ],
+      "messages": []
+    }
+}
