@@ -472,6 +472,17 @@ data_loader #(
     .write_data(ioctl_dout)
 );
 
+//
+// Coin Pulse
+//
+
+wire m_coin_pulse;
+shortpulse coin_pulse(
+	.clk(clk_sys),
+	.inp(m_coin),
+	.pulse(m_coin_pulse)
+);
+
 ///////////////////////////////////////////////
 // High Score
 ///////////////////////////////////////////////
@@ -716,7 +727,7 @@ wire m_pause   = joy[8] | joy2[8];
 wire reset = ~reset_n | ioctl_download;
 
 wire [7:0]m_sw1={1'b1,~m_start2,~m_start1,~m_fire,~m_down,~m_up,~m_left,~m_right};
-wire [7:0]m_sw2={1'b1,1'b1,~m_coin,,~m_fire_2,~m_down_2,~m_up_2,~m_left_2,~m_right_2};
+wire [7:0]m_sw2={1'b1,1'b1,~m_coin_pulse,~m_fire_2,~m_down_2,~m_up_2,~m_left_2,~m_right_2};
 
 
 dkong3_top dkong3_top (
@@ -774,4 +785,34 @@ mf_pllbase mp1 (
 );
 
     
+endmodule
+
+
+module shortpulse
+(
+   input    clk,
+   input    inp,
+   output   pulse
+);
+
+reg        out;
+reg [19:0] pulse_cnt = 0;
+
+always_ff @(posedge clk) begin
+
+   reg old_inp;
+   out <= 1'b0;
+
+   if (|pulse_cnt) begin
+      pulse_cnt <= pulse_cnt - 1'b1;
+      out <= 1'b1;
+   end else begin
+      old_inp <= inp;
+      if (old_inp && !inp) pulse_cnt <= 20'hFFFFF;
+   end
+
+end
+
+assign pulse = out;
+
 endmodule
