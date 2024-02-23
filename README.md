@@ -14,7 +14,7 @@ Analogue Pocket port of Donkey Kong 3
 Note:  File bugs for issues you encounter on the Github tracker.  Any issues are most likely with my integration, and not with the cores themselves.  Please do not engage the original core authors for support requests related to this port.
 
 ## Release Notes
-README
+v0.9.1
 * Add coin pulse signal to avoid issues reported with inserting coins.
 
 v0.9.0
